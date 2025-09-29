@@ -10,8 +10,12 @@
             width: 100%;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+    <div class="w-full flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800">
+        <h1 class="text-white font-bold text-5xl">Tambah Tugas</h1>
+    </div>
     <?php
     include "koneksi.php";
 
@@ -29,12 +33,18 @@
     }
     mysqli_close($conn);
     ?>
-    <h2 style="text-align:center">Tambah Tugas</h2>
- <form method="POST" action="">
-    <label>Tugas Baru</label>
-    <input type="text" name="isi_tugas" required>
+    <table class="my-15 w-auto table-fixed border-2 text-center m-auto shadow-2xl">
+        <tr>
+            <td>
+                <form method="POST" action="">
+                <label>Tugas Baru :</label>
+                <input type="text" name="isi_tugas" required>
 
-    <input type="submit" value="Simpan">
-  </form>
+                <button type="submit" class="bg-blue-900 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Simpan</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+ 
 </body>
 </html>

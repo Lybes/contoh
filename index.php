@@ -7,7 +7,7 @@ include "koneksi.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <style>
+    <!-- <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -35,20 +35,21 @@ include "koneksi.php";
             width: 100%;
             text-align: center;
         }
-    </style>
-
+    </style> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 </head>
-<body>
+<body class="w-full">
 
 
     <!-- Navbar -->
-     <div class="navbar">
-        <h1>To Do List</h1>
-        <a href="tambah.php">Tambah Tugas</a>
+     <div class="w-full flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800">
+        <h1 class="text-white font-bold text-5xl">To Do List</h1>
+        <a href="tambah.php" class="text-white hover:text-gray-500" >Tambah Tugas +</a>
      </div>
+     
      <div>
-        <table class="table-content">
+        <table class="w-full table-fixed border-2 text-center m-auto shadow-2xl">
             <thead>
                 <tr>
                     <th>Tugas</th>
@@ -60,7 +61,7 @@ include "koneksi.php";
             $sql = "SELECT id_tugas, isi_tugas FROM todolist";
             $result = mysqli_query($conn, $sql);
 
-            echo "<h2>List Tugas</h2>";
+            echo "<h2 class='text-center font-bold text-3xl my-2'>List Tugas</h2>";
             
 
             if (mysqli_num_rows($result) > 0) {

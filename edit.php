@@ -28,7 +28,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Isi Tugas</title>
-    <style>
+    <!-- <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -73,20 +73,38 @@ mysqli_close($conn);
         input[type="submit"]:hover {
             background-color: #45a049;
         }
-    </style>
+    </style> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-
-    <div class="container">
-        <h2>Edit Isi Tugas</h2>
-        <form action="prosesedit.php" method="POST">
-            <input type="hidden" name="id_tugas" value="<?php echo $id_tugas; ?>">
-            
-            <label for="isi_tugas">Isi Tugas:</label>
-            <input type="text" id="isi_tugas " name="isi_tugas" value="<?php echo htmlspecialchars($isi_tugas); ?>" required>
-            
-            <input type="submit" value="Update Tugas">
-        </form>
+    <div class="w-full flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-md outline outline-black/5 dark:bg-gray-800">
+        <h1 class="text-white font-bold text-5xl">Edit Tugas</h1>
     </div>
+    <div class="max-w-lg mx-auto mt-10">
+
+    <form action="prosesedit.php" method="POST" class="bg-white shadow rounded-lg p-6">
+        <!-- Hidden input untuk id tugas -->
+        <input type="hidden" name="id_tugas" value="<?php echo $id_tugas; ?>">
+
+        <!-- Input isi tugas -->
+        <label for="isi_tugas" class="block font-bold mb-2">Isi Tugas:</label>
+        <input 
+            type="text" 
+            id="isi_tugas" 
+            name="isi_tugas" 
+            value="<?php echo htmlspecialchars($isi_tugas); ?>" 
+            required
+            class="w-full border rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+
+        <!-- Tombol update -->
+        <input 
+            type="submit" 
+            value="Update Tugas" 
+            class="bg-blue-900 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded cursor-pointer"
+        >
+    </form>
+</div>
+
 </body>
 </html>
